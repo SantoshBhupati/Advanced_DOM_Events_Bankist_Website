@@ -62,3 +62,23 @@ document.addEventListener('keydown', function (e) {
   document.querySelector('.btn--close-cookie').addEventListener('click',function(){
     message.remove();
   })
+
+  //STYLES ATTRIBUTES AND CLASSES
+  message.style.backgroundColor = '#37383d';
+
+  message.style.width = '100%'; //set as inline css
+  console.log(message.style.color) // prints nothing  because it returns only inline css elements
+  console.log(message.style.width); // 100%
+
+  // How to get external css
+  console.log(getComputedStyle(message).color);
+  console.log(getComputedStyle(message).height);
+
+  message.style.height =Number.parseFloat(getComputedStyle(message).height,10) + 40 + 'px';
+
+  //ATTRIUBUTES
+
+  const logo =  document.querySelector('.nav__logo');
+  console.log(logo.src);
+  console.log(logo.className);
+  console.log(logo.alt);
