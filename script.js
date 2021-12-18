@@ -82,3 +82,50 @@ document.addEventListener('keydown', function (e) {
   console.log(logo.src);
   console.log(logo.className);
   console.log(logo.alt);
+
+  //SMOOTH SCROLLING
+  const btnScrollTo = document.querySelector('.btn--scroll-to');
+  // console.log(btnScrollTo)
+
+  const section_1 = document.querySelector('#section--1');
+
+ btnScrollTo.addEventListener('click',function(e){
+   const s1coords = section_1.getBoundingClientRect();
+  //  console.log(s1coords);
+   //it returns object
+//    DOMRect {x: 0, y: 713.6000366210938, width: 964.7999877929688, height: 1567.2000732421875, top: 713.6000366210938, …}
+// bottom: 2280.8001098632812
+// height: 1567.2000732421875
+// left: 0
+// right: 964.7999877929688
+// top: 713.6000366210938
+// width: 964.7999877929688
+// x: 0
+// y: 713.6000366210938
+// [[Prototype]]: DOMRect
+
+  // console.log(e.target.getBoundingClientRect());
+
+  // console.log('Current Scroll X/Y',window.pageXOffset," ",window.pageYOffset);
+  // //scrolling
+  // window.scrollTo(s1coords.left + window.pageXOffset,s1coords.top + window.pageYOffset);
+   
+  //smooth
+  // window.scrollTo(
+  //   {
+  //    left: s1coords.left + window.pageXOffset,
+  //     top: s1coords.top + window.pageYOffset,
+  //     behavior : 'smooth'
+
+  //   })
+
+  //Modern Way TO Scrolling
+   section_1.scrollIntoView({behavior:'smooth'});
+ })
+
+
+  
+
+
+
+
