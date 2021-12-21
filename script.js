@@ -124,20 +124,51 @@ document.addEventListener('keydown', function (e) {
  })
   
 
- const h1 = document.querySelector('h1');
+//  const h1 = document.querySelector('h1');
 
-  const alertH1 = function(){
-    alert("This An Event : YOU ARE HEADINNG TAG");
+//   const alertH1 = function(){
+//     alert("This An Event : YOU ARE HEADINNG TAG");
 
-    //removing eventlistener
-    h1.removeEventListener('mouseenter',alertH1);
-  }
+//     //removing eventlistener
+//     h1.removeEventListener('mouseenter',alertH1);
+//   }
 
 
- h1.addEventListener('mouseenter',alertH1);
+//  h1.addEventListener('mouseenter',alertH1);
 
+//Event Propogation
+
+// //BUBBLING
+// const randomInt = (max,min) => Math.floor(Math.random() * (max-min +1)+min);
+// // console.log(randomInt(7,2));
+// const randomColor = ()=> `rgb(${randomInt(255,0)},${randomInt(255,0)},${randomInt(255,0)})`
+// // console.log(randomColor())
+ 
+// document.querySelector('.nav__link').addEventListener('click',function(e){
+// console.log('LINK',e.target);
+// //stop propogation
+// e.stopPropagation();
+// })
+ 
+
+// document.querySelector('.nav__links').addEventListener('click',function(e){
+//   console.log('container',e.target);
   
+// })
 
 
+// document.querySelector('.nav').addEventListener('click',function(e){
+//   console.log('Nav',e.target);
+// })
 
+// Event bubbling is a method of event propagation in the HTML DOM API when an event is in an element inside another element, and both elements have registered a handle to that event. It is a process that starts with the element that triggered the event and then bubbles up to the containing elements in the hierarchy.
+//This A Bulbling
+//When Click Event is happend at Fetaure then events are tranfered to parentElement but target remains same
+// LINK <a class=​"nav__link" href=​"#section--1">​Features​</a>​
+// script.js:154 container <a class=​"nav__link" href=​"#section--1">​Features​</a>​
+// script.js:159 Nav <a class=​"nav__link" href=​"#section--1">​Features​</a>​
 
+//For caputring phase we add third parameter as true in EventListener 
+// document.querySelector('.nav').addEventListener('click',function(e){
+//   console.log('Nav',e.target);
+// },true)
