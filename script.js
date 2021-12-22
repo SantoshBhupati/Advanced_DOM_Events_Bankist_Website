@@ -103,8 +103,31 @@ document.querySelector('.nav__links').addEventListener('click',function(e){
 })
 
 
+//Tabbed Comoponet
+const tabs = document.querySelectorAll('.operations__tab');
+const tabContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
 
 
+// tabs.forEach(t=>t.addEventListener('click',function(e){
+//   console.log('TAB');
+// }))
+
+tabContainer.addEventListener('click',function(e){
+  const clicked = e.target.closest('.operations__tab');
+  console.log(clicked)
+
+  if(!clicked) return
+
+  //Removing Defalut
+  tabs.forEach(t => t.classList.remove('operations__tab--active'))
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+  
+  //Adding Current 
+  clicked.classList.add('operations__tab--active');
+  
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
+})
 ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////
 /////////
