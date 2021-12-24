@@ -158,6 +158,19 @@ nav.addEventListener('mouseout',function(e){
   handleOver(e,1);
 });
 
+//STICKY NAVIGATION
+// const initcords = section_1.getBoundingClientRect();
+// console.log(initcords);
+
+// window.addEventListener('scroll',function(){
+//   if(window.scrollY>initcords.top){
+//     nav.classList.add('sticky');
+//   }
+//   else{
+//     nav.classList.remove('sticky');
+//   }
+// })
+
 ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////
 /////////
