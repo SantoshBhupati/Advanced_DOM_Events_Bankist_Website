@@ -191,7 +191,7 @@ const header = document.querySelector('.header');
 
 const navSticky = function(entries){
   const [entry] = entries;
-  console.log(entry);
+  // console.log(entry);
   if(!entry.isIntersecting){
   nav.classList.add('sticky');
   }
@@ -207,6 +207,29 @@ rootMargin:'-90px',
 })
 headerObserver.observe(header);
 
+//REVEAL SECTION 
+
+const allsections = document.querySelectorAll('.section');
+
+console.log(allsections);
+const revealSection = function(entries,observer){
+
+  const [entry] = entries;
+  // console.log(entry);
+  if(!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+
+  observer.unobserve(entry.target);
+}
+const sectionObserver = new IntersectionObserver(revealSection,{
+ root:null,
+ threshold:0.15,
+})
+
+allsections.forEach(section => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+})
 ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////
 /////////
