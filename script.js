@@ -171,6 +171,42 @@ nav.addEventListener('mouseout',function(e){
 //   }
 // })
 
+
+//////STICKY NAVIGATION : THE INTERSECTION OBSERVER API
+// const obsCallback = function(entries,observer){
+// entries.forEach(entry =>{
+//   console.log(entry);
+// })
+// }
+// const obsOptions = {
+//   root : null,
+//   threshold: 0.1
+// }
+
+// const observer = new IntersectionObserver(obsCallback,obsOptions);
+// observer.observe(section_1);
+
+
+const header = document.querySelector('.header');
+
+const navSticky = function(entries){
+  const [entry] = entries;
+  console.log(entry);
+  if(!entry.isIntersecting){
+  nav.classList.add('sticky');
+  }
+  else{
+    nav.classList.remove('sticky');
+  }
+}
+
+const headerObserver = new IntersectionObserver(navSticky,{
+root:null,
+threshold : 0,
+rootMargin:'-90px',
+})
+headerObserver.observe(header);
+
 ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////
 /////////
